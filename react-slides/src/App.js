@@ -21,6 +21,10 @@ function Gallery() {
     setIndex(index + 1);
   }
 
+  function handleNextClick() {
+    setIndex(index + 1);
+  }
+
   function handleBackClick() {
     setIndex(index - 1);
   }
@@ -30,23 +34,23 @@ function Gallery() {
   }
 
   let data = filmData[index];
+
   return (
     <>
-      <button onClick={handleNextClick}>
-        Next
-      </button>
-      <button onClick={handleBackClick}>
-        Back
-      </button>
       <button onClick={handleRestartClick}>
         Restart
       </button>
-
+      <button onClick={handleBackClick} disabled={index === 0}>
+        Back
+      </button>
+      <button onClick={handleNextClick} disabled={index === filmData.length - 1}>
+        Next
+      </button>
       <h2 className='title'>{data.title}</h2>
       <div className='juice'>
-        <div className='image'><img src={data.image} alt="cover" width='310px' height='450px' /></div>
+        <div className='image'><img src={data.image} alt="cover" width='300px' height='450px' /></div>
         <div className='info'>
-          <h3 >{data.original_title}</h3>
+          <h3>{data.original_title}</h3>
           <h5>{data.release_date}</h5>
           <h4>{data.description}</h4>
         </div>
@@ -54,7 +58,7 @@ function Gallery() {
     </>
   );
 }
+{/* <button class='card-footer-item' onClick={() => { setFilmIndex(0) }} disabled={filmIndex === 0}>Start Over</button> */ }
 
 
 export default App;
-

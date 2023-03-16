@@ -42,13 +42,13 @@ function Gallery() {
         Restart
       </button>
 
-      <h2>{data.title}</h2>
+      <h2 className='title'>{data.title}</h2>
       <div className='juice'>
-        <div><img src={data.image} alt="cover" /></div>
-        <div>
-          <h2>{data.original_title}</h2>
-          <h2>{data.release_date}</h2>
-          <h2>{data.description}</h2>
+        <div className='image'><img src={data.image} alt="cover" width='310px' height='450px' /></div>
+        <div className='info'>
+          <h3 >{data.original_title}</h3>
+          <h5>{data.release_date}</h5>
+          <h4>{data.description}</h4>
         </div>
       </div>
     </>
